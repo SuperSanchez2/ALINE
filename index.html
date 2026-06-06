@@ -332,40 +332,48 @@ body{
 </h1>
 
 <p id="assinatura">
-    Com amor, Gabriel ❤️
+    Com amor, Gabriel Sanchez
 </p>
 </div>
+<audio id="musica" loop>
+    <source src="musica.mp3" type="audio/mpeg">
+</audio>
 
 <script>
 
 const texto = `Fiz esse site para que você nunca esqueça o quanto é especial para mim.
 
-Você se tornou minha maior companheira, minha melhor amiga e a pessoa que ilumina meus dias com esse sorriso tão lindo.
+Você se tornou minha maior companheira, minha melhor amiga e a pessoa que ilumina meus dias com esse sorriso tão lindo que sempre consegue me fazer sentir melhor.
 
-Mesmo nos momentos em que duvido de mim mesmo, você está sempre ao meu lado, me apoiando, me incentivando e me mostrando que tudo ficará bem.
+Mesmo nos momentos em que duvido de mim mesmo, você está ao meu lado me apoiando, me incentivando e me mostrando que tudo ficará bem. Seu carinho e sua presença tornam os dias mais leves e os desafios muito mais fáceis de enfrentar.
 
-Ao seu lado, os dias são mais leves, os desafios parecem menores e os momentos felizes se tornam ainda mais especiais.
+Uma das coisas que mais admiro em você é a sua dedicação. Eu vejo o quanto você se esforça, o quanto estuda e o quanto luta pelos seus sonhos. Sei que nem todos os dias são fáceis, mas quero que você nunca duvide da sua capacidade. Você é forte, inteligente e determinada, e tenho certeza de que todo esse esforço será recompensado.
 
-Não consigo imaginar minha vida sem você e sou grato todos os dias por ter encontrado alguém tão incrível para compartilhar a vida.
+Você me ensinou uma frase que nunca esqueci: "nós somos do tamanho dos nossos sonhos". E quando penso nisso, lembro de você. Lembro da forma como corre atrás dos seus objetivos, da paixão que coloca em tudo o que faz e da determinação que demonstra todos os dias.
 
-Obrigado por ser exatamente quem você é, por todo o carinho, paciência, companheirismo e amor que me oferece todos os dias.
+Eu acredito em você e nos seus sonhos. Acredito que você será uma profissional incrível, porque além da competência, você tem algo que não se aprende em livros: um coração enorme e um amor verdadeiro pelo que faz.
 
-Prometo continuar cuidando de você, te apoiando em cada sonho e construindo ao seu lado um futuro cheio de momentos felizes.
+Obrigado por ser exatamente quem você é, por todo o amor, paciência, companheirismo e cuidado que demonstra em cada detalhe.
+
+Prometo continuar te amando, te apoiando em cada sonho, comemorando cada conquista e estando ao seu lado em cada etapa da sua caminhada.
+
+Talvez eu não consiga colocar em palavras tudo o que sinto, mas quero que você saiba que ter você na minha vida é uma das melhores coisas que já me aconteceram.
 
 Eu te amo mais do que as palavras conseguem expressar.
 
 Eu te amo, Aline ❤️`;
 
+
+
 function revelar(){
     const musica = document.getElementById("musica");
 
-musica.volume = 0.3;
+    musica.volume = 0.3;
+    musica.play();
 
-musica.play().catch((erro) => {
-    console.log("Erro ao tocar:", erro);
-});
     const inicio = document.getElementById("inicio");
     const overlay = document.getElementById("overlay");
+  
 
     inicio.style.opacity = "0";
 
@@ -443,11 +451,12 @@ function mostrarFotos(){
 
             foto.classList.add("aparecer");
 
-        }, index * 6000);
+        }, index * 10000);
 
     });
 
 }
+
 </script>
 
 </body>
