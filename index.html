@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Para Aline ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:black;
+    min-height:100vh;
+    font-family:'Poppins', sans-serif;
+    overflow-x:hidden;
+}
+
+/* Fundo da revelação */
+
+#overlay{
+    position:fixed;
+    inset:0;
+
+    background:linear-gradient(
+        180deg,
+        #120000,
+        #450000,
+        #8b0020,
+        #ff4d6d
+    );
+
+    opacity:0;
+    transition:opacity 4s ease;
+
+    z-index:0;
+}
+
+/* Tela inicial */
+
+#inicio{
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+
+    position:relative;
+    z-index:2;
+}
+
+.frase{
+    color:#b0b0b0;
+    font-size:1.3rem;
+    margin-bottom:40px;
+    letter-spacing:2px;
+
+    transition:opacity 1s;
+}
+
+.botao{
+    background:transparent;
+    color:#ff003c;
+    border:2px solid #ff003c;
+
+    padding:18px 40px;
+
+    font-size:1.3rem;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 0 10px #ff003c,
+        0 0 20px #ff003c;
+
+    animation:pulsar 2s infinite ease-in-out;
+
+    transition:opacity 1s;
+}
+
+.botao:hover{
+    transform:scale(1.05);
+}
+
+@keyframes pulsar{
+
+    0%{
+        transform:scale(1);
+        box-shadow:
+            0 0 10px #ff003c,
+            0 0 20px #ff003c;
+    }
+
+    50%{
+        transform:scale(1.05);
+        box-shadow:
+            0 0 15px #ff003c,
+            0 0 30px #ff003c;
+    }
+
+    100%{
+        transform:scale(1);
+        box-shadow:
+            0 0 10px #ff003c,
+            0 0 20px #ff003c;
+    }
+}
+@keyframes brilhoFinal{
+    0%{
+        text-shadow:0 0 5px #fff;
+    }
+
+    50%{
+        text-shadow:
+            0 0 10px #fff,
+            0 0 20px #ff4d6d,
+            0 0 40px #ff4d6d;
+    }
+
+    100%{
+        text-shadow:0 0 5px #fff;
+    }
+}
+
+#final{
+    animation: brilhoFinal 3s infinite;
+}
+
+/* Conteúdo principal */
+
+#conteudo{
+    display:none;
+
+    position:relative;
+    z-index:2;
+
+    text-align:center;
+
+    color:white;
+
+    padding:50px 20px;
+}
+
+#titulo{
+    font-size:clamp(3rem, 10vw, 5rem);
+    font-weight:700;
+    letter-spacing:4px;
+    text-transform:uppercase;
+
+    opacity:0;
+    transition:2s;
+}
+
+#subtitulo{
+    margin-top:15px;
+
+   font-size:clamp(1.3rem, 5vw, 2rem);
+
+    opacity:0;
+
+    transition:2s;
+}
+
+#mensagem{
+     max-width:700px;
+
+    width:90%;
+
+    margin:50px auto;
+
+    padding:0 25px;
+
+    color:white;
+
+    text-align:left;
+
+  font-size:1.1rem;
+    line-height:1.9;
+
+    white-space:pre-line;
+
+    opacity:0;
+
+    transition:1s;
+}
+
+.foto.mostrar{
+    opacity:1;
+    transform:translateY(0);
+}
+#final{
+    margin-top:100px;
+
+    font-size:clamp(2rem, 8vw, 3rem);
+
+    text-align:center;
+
+    font-weight:700;
+}
+#assinatura{
+    margin-top:20px;
+    margin-bottom:80px;
+
+    text-align:center;
+
+    font-size:1.2rem;
+}
+#galeria{
+    position:relative;
+
+    width:320px;
+
+    height:480px;
+
+    margin:80px auto;
+}
+.foto{
+    position:absolute;
+
+    width:100%;
+
+    top:0;
+    left:0;
+
+    border-radius:20px;
+    border:4px solid white;
+
+    box-shadow:0 15px 30px rgba(0,0,0,.4);
+
+    opacity:0;
+
+    transform:translateY(30px) scale(0.95);
+
+    transition:
+        opacity 1.2s ease,
+        transform 1.2s ease;
+}
+.foto1{
+    transform:rotate(-6deg);
+    z-index:1;
+}
+
+.foto2{
+    transform:rotate(4deg);
+    z-index:2;
+}
+
+.foto3{
+    transform:rotate(-3deg);
+    z-index:3;
+}
+
+.foto4{
+    transform:rotate(5deg);
+    z-index:4;
+}
+
+.foto5{
+    transform:rotate(5deg);
+    z-index:5;
+}
+.foto6{
+    transform:rotate(5deg);
+    z-index:6;
+}
+.foto7{
+    transform:rotate(5deg);
+    z-index:7;
+}
+
+
+
+
+
+.aparecer{
+    opacity:1;
+    transform:translateY(0) scale(1);
+}
+</style>
+</head>
+
+<body>
+
+<div id="overlay"></div>
+
+<div id="inicio">
+
+    <p class="frase">
+        Tenho algo para te mostrar...
+    </p>
+
+    <button class="botao" onclick="revelar()">
+        ❤️ Clique aqui, amor ❤️
+    </button>
+
+</div>
+
+<div id="conteudo">
+
+    <h1 id="titulo">ALINE ❤️</h1>
+
+    <h2 id="subtitulo">
+        Feliz Dia dos Namorados ❤️
+    </h2>
+
+    <p id="mensagem"></p>
+
+<div id="galeria">
+
+    <img src="aline.jpg" class="foto foto1">
+    <img src="junto2s.jpg" class="foto foto2">
+    <img src="juntos.jpg" class="foto foto3">
+    <img src="sorrindo.jpg" class="foto foto4">
+    <img src="4.jpg" class="foto foto5">
+    <img src="3.jpg" class="foto foto6">
+    <img src="5.jpg" class="foto foto7">
+
+
+
+</div>
+<h1 id="final">
+    Eu te amo, Aline ❤️
+</h1>
+
+<p id="assinatura">
+    Com amor, Gabriel ❤️
+</p>
+</div>
+
+<script>
+
+const texto = `Fiz esse site para que você nunca esqueça o quanto é especial para mim.
+
+Você se tornou minha maior companheira, minha melhor amiga e a pessoa que ilumina meus dias com esse sorriso tão lindo.
+
+Mesmo nos momentos em que duvido de mim mesmo, você está sempre ao meu lado, me apoiando, me incentivando e me mostrando que tudo ficará bem.
+
+Ao seu lado, os dias são mais leves, os desafios parecem menores e os momentos felizes se tornam ainda mais especiais.
+
+Não consigo imaginar minha vida sem você e sou grato todos os dias por ter encontrado alguém tão incrível para compartilhar a vida.
+
+Obrigado por ser exatamente quem você é, por todo o carinho, paciência, companheirismo e amor que me oferece todos os dias.
+
+Prometo continuar cuidando de você, te apoiando em cada sonho e construindo ao seu lado um futuro cheio de momentos felizes.
+
+Eu te amo mais do que as palavras conseguem expressar.
+
+Eu te amo, Aline ❤️`;
+
+function revelar(){
+
+    const inicio = document.getElementById("inicio");
+    const overlay = document.getElementById("overlay");
+
+    inicio.style.opacity = "0";
+
+    setTimeout(() => {
+
+        inicio.style.display = "none";
+
+        overlay.style.opacity = "1";
+
+        setTimeout(() => {
+
+            const conteudo =
+            document.getElementById("conteudo");
+
+            const titulo =
+            document.getElementById("titulo");
+
+            const subtitulo =
+            document.getElementById("subtitulo");
+
+            conteudo.style.display = "block";
+
+            setTimeout(() => {
+                titulo.style.opacity = "1";
+            }, 200);
+
+            setTimeout(() => {
+                subtitulo.style.opacity = "1";
+            }, 1200);
+            setTimeout(() => {
+            digitarTexto();
+            }, 2500);
+
+                setTimeout(() => {
+    mostrarFotos();
+}, 7000);
+
+        }, 3000);
+
+    }, 1000);
+}
+
+function digitarTexto(){
+
+    const mensagem =
+    document.getElementById("mensagem");
+
+    mensagem.style.opacity = "1";
+
+    let i = 0;
+
+    const intervalo = setInterval(() => {
+
+        mensagem.textContent += texto.charAt(i);
+
+        i++;
+
+        if(i >= texto.length){
+            clearInterval(intervalo);
+
+
+        }
+
+    }, 65);
+
+}
+function mostrarFotos(){
+
+    const fotos =
+    document.querySelectorAll(".foto");
+
+    fotos.forEach((foto, index)=>{
+
+        setTimeout(()=>{
+
+            foto.classList.add("aparecer");
+
+        }, index * 6000);
+
+    });
+
+}
+</script>
+
+</body>
+</html>
